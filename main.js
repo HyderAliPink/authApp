@@ -55,11 +55,12 @@ onAuthStateChanged(auth, (user) => {
 
   const greetUser = document.getElementById("greetingText");
   const profilePhoto = document.getElementById("profileImage");
-  if (greetUser === null) {
-    greetUser.innerHTML = ` Sahab ${user.displayName}`;
+  if (user.displayName) {
+    greetUser.innerHTML = `Sahab ${user.displayName}`;
   } else {
     greetUser.innerHTML = "user";
   }
+  profilePhoto.src = `${user.photoURL}`;
   profilePhoto.src = `${user.photoURL}`;
 
   if (user) {
